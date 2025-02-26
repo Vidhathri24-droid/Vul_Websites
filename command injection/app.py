@@ -11,7 +11,7 @@ def index():
 @app.route('/search', methods=['POST'])
 def search():
         input = request.form['input']
-        result = os.popen(f" {input} ").read()
+        result = os.popen(f"grep -i {input} dictionary.txt").read()
         return render_template_string('<pre>{{ result }}</pre>', result=result)
 
 if __name__ == "__main__":
