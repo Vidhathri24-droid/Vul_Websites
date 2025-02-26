@@ -9,7 +9,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:09082024@localhost/xss_vul?auth_plugin=mysql_native_password"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:my_password@localhost/my_db?auth_plugin=mysql_native_password"
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager()
@@ -105,7 +105,7 @@ def search():
 @app.route('/admin')
 def admin_panel():
         resp = make_response('<h1>Admin Panel</h1>')
-        resp.set_cookie('admin_cookie', '123235redc5terfsddeqa')
+        resp.set_cookie('admin_cookie', 'ashdasdadfjrgtrgbqeretrhgbdv')
         return resp
 
 if __name__ == '__main__':
