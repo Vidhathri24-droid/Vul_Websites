@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+User Dashboard
+<style>
+        .content-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full viewport height */
+        }
+
+        .dashboard-container {
+                border: 10px solid #333; /* Change the color and width as needed */
+                padding: 50px;
+                border-radius: 40px; /* Rounded corners */
+                background-color: #f8f9fa; /* Optional: background color */
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow effect */
+                max-width: 500px; /* Maximum width of the box */
+                width: 100%; /* Ensure it uses 100% width up to the max width */
+        }
+
+        .account-img {
+                width: 100px;
+                height: 100px;
+        }
+
+        .media {
+                display: flex;
+                align-items: center;
+                flex-direction: column; /* Center items vertically */
+                text-align: center; /*Center text */
+        }
+
+        .btn-outline-info {
+                margin-top: 15px;
+        }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="content-section">
+        <div class="dashboard-container">
+            <div class="media">
+                <img class="rounded-circle account-img" src="{{ image_file }}" alt="" style="width: 100px; height: 100px;">
+                <div class="media-body">
+                    <h2 class="account-heading">{{ current_user.username }}</h2>
+                    <p class="text-secondary">{{ current_user.email }}</p>
+                    <a href="{{ url_for('update') }}" class="btn btn-outline-info mt-3">Update Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="{{ url_for('delete_account') }}">Click here to delete your account</a>
+{% endblock %}
